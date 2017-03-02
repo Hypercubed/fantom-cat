@@ -1,0 +1,10 @@
+{
+	"name": "traits",
+	"title": "Master list of traits in FANTOM CAT",
+	"resources": [
+		{
+			"name": "trait.info.tsv",
+			"path": "../../data/version_20161015.trait.master_info.tsv"
+		}
+	]
+}

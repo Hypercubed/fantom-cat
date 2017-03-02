@@ -1,0 +1,39 @@
+{
+  "name": "fantom-cat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hypercubed/fantom-cat"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "xo": "^0.16.0"
+  },
+  "xo": {
+    "esnext": true,
+    "space": 2,
+    "envs": [
+      "node",
+      "browser"
+    ],
+    "ignores": [],
+    "rules": {
+      "no-console": "warn",
+      "import/no-extraneous-dependencies": 0,
+      "space-before-function-paren": [
+        2,
+        {
+          "anonymous": "always",
+          "named": "always"
+        }
+      ],
+      "no-warning-comments": 0
+    }
+  }
+}

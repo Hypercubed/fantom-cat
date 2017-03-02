@@ -1,0 +1,45 @@
+<div class="facet">
+  <ul class="list-unstyled facet-list">
+    <li class="facet-item"
+      ng-repeat="row in $ctrl.facet.group.top($ctrl.limit)"
+      ng-click="$ctrl.toggle(row.key)"
+      >
+      <p ng-class="{true: 'bg-info', false: 'bg-danger'}[$ctrl.exists(row.key)]">
+          <span>
+            <input type="checkbox" ng-checked="$ctrl.exists(row.key)">
+            <label>
+              {{row.key}}
+            </label>
+          </span>
+          <uib-progressbar class="pull-right" max="100" value="$ctrl.scale(row.value)">
+            <span style="white-space:nowrap;">{{row.value}}</span>
+          </uib-progressbar>
+      <p>
+    </li>
+  </ul>
+  <div class="btn-group">
+    <a class="btn btn-sm btn-link"
+      ng-if="$ctrl.size > $ctrl.minLimit"
+      ng-click="$ctrl.toggleLimit()">
+      <span ng-switch="$ctrl.size > $ctrl.limit">
+        <small>
+          <span ng-if="$ctrl.size > $ctrl.limit">(showing first {{$ctrl.limit | number}})<span>
+        </small>
+        <i class="fa fa-plus" aria-label="show more" ng-switch-when="true">
+          show more
+        </i>
+        <i class="fa fa-minus" aria-label="show less" ng-switch-when="false">
+          show less
+        </i>
+      </span>
+    </a>
+    <a class="btn btn-sm btn-link"
+      ng-if="$ctrl.facet.filterTo.length > 0"
+      ng-click="$ctrl.clear()">
+      <i class="fa fa-times-circle-o" aria-label="Remove Filter">
+        clear
+      </i>
+    </a>
+    <a class="btn btn-sm btn-link" style="visibility: hidden">&nbsp;</a>
+  </div>
+</div>

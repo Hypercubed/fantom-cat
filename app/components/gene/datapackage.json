@@ -1,0 +1,11 @@
+{
+  "name": "gene",
+  "title": "Gene in FANTOM CAT",
+  "resources": [
+    "../../data/gene_json/${$routeParams.id}.json",
+    {"name": "diffExpr.grouping.tsv", "path": "../../data/version_20161015.diffExpr.grouping.tsv"},
+    {"name": "ontology.info.tsv", "path": "../../data/version_20161015.ontology.master_info.tsv"},
+    {"name": "sample.info.tsv", "path": "../../data/version_20161015.sample.info.tsv"},
+    {"name": "zenbu_list.tsv", "path": "../../data/zenbu_list_v1.tsv"}
+  ]
+}

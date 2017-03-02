@@ -1,0 +1,51 @@
+<package-editor options="$ctrl.editorOptions"></package-editor>
+
+<div id="charts" class="gene-page" class="container">
+	<h1 class="header">{{::$ctrl.ontology.ontology_name}} <small>{{::$ctrl.ontology.ontology_id}}</small></h1>
+	<p>{{::$ctrl.ontology.description}}</p>
+
+	<div class="row">
+		<div class="col-md-3 small col-left">
+	    <h2>Refine by</h2>
+	    <div class="row">
+	      <div class="col-xs-12">
+	        <facetpanels facets="$ctrl.facets" clear-all="$ctrl.clearAll()"></facetpanels>
+	      </div>
+	    </div>
+	  </div>
+		<div class="col-md-9">
+			<h2>Gene association <small>Showing {{$ctrl.grids.genes.data.length}} of {{::$ctrl.genes.length}}</small></h2>
+			<form class="form-group has-feedback">
+				<input type="text" class="form-control" placeholder="search" aria-describedby="inputSuccess2Search"
+					ng-model="$ctrl.filterValue"
+					ng-change="$ctrl.searchFilter($ctrl.filterValue)" />
+				<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+				<span id="inputSuccess2Search" class="sr-only">(search)</span>
+			</form>
+			<div ui-grid="$ctrl.grids.genes" ui-grid-resize-columns class="geneGrid"></div>
+		</div>
+	</div>
+
+	<h2>Trait enrichment <small>{{::$ctrl.grids.traits.data.length}}</small></h2>
+	<div ng-switch="::$ctrl.grids.traits.data.length">
+		<div ng-switch-when="0">
+			<h4 class="text-center">No Trait enrichment</h4>
+		</div>
+		<div ng-switch-default>
+			<div ui-grid="::$ctrl.grids.traits" ui-grid-resize-columns ui-grid-auto-resize class="xxgeneGrid"></div>
+		</div>
+	</div>
+
+  <h2>Samples <small>{{::$ctrl.ontology.number_of_samples}}</small></h2>
+  <div class="row">
+    <a ng-repeat="sample in ::$ctrl.ontology.sample_info" ng-href="http://fantom.gsc.riken.jp/5/sstar/{{sample.FFID}}">
+      {{sample.description}}
+    </a>
+  </div>
+
+  <!-- h2>JSON</h2>
+  <div class="row">
+    <json-tree object="::$ctrl.ontology"></json-tree>
+  </div -->
+
+</div>

@@ -1,0 +1,8 @@
+{
+  "name": "trait",
+  "title": "Trait in FANTOM CAT",
+  "resources": [
+    "../../data/trait_json/${id}.json",
+    "../../data/trait_tsv/${id}.tsv"
+  ]
+}

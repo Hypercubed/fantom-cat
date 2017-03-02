@@ -1,0 +1,35 @@
+<div class="header">
+	<div class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand" ng-href="#/">FANTOM CAT</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="js-navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li active-path="/genes" uib-tooltip-html="::$root.strings.landing_main_gene" tooltip-placement="bottom">
+						<a ng-href="#/genes">Genes</a>
+					</li>
+					<li active-path="/traits" uib-tooltip-html="::$root.strings.landing_main_trait" tooltip-placement="bottom">
+						<a ng-href="#/traits">Traits</a>
+					</li>
+					<li active-path="/ontologies" uib-tooltip-html="::$root.strings.landing_main_cell" tooltip-placement="bottom">
+						<a ng-href="#/ontologies">Ontologies</a>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li active-path="/about"><a ng-href="#/about">About</a></li>
+					<li><a ng-href="mailto:fantom-cat@riken.jp">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

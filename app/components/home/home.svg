@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 482 301">
+  <circle cx="64.583" cy="235.716" r="42.521" fill="#e9c6c5"/>
+  <circle cx="68.101" cy="235.716" r="42.521" fill="none" stroke="#C8665F" stroke-width="6" stroke-miterlimit="10" stroke-linejoin="round"/>
+  <circle cx="234.698" cy="96.634" r="67.563" fill="#C7D6EA"/>
+  <circle cx="234.698" cy="96.634" r="67.563" fill="none" stroke="#6794CA" stroke-width="6" stroke-miterlimit="10" stroke-linejoin="round"/>
+  <circle cx="397.431" cy="238.419" r="42.521" fill="#DEE9C8"/>
+  <circle cx="397.431" cy="238.419" r="42.521" fill="none" stroke="#ABC66A" stroke-width="6" stroke-miterlimit="10" stroke-linejoin="round"/>
+  <a transform="translate(-9.675 -1.76)">
+    <text transform="translate(194.153 107.96)" font-size="32" font-family="HelveticaNeue-CondensedBold" fill="#3e5f92">
+      Genes
+    </text>
+  </a>
+  <a transform="translate(-5.277 -1.76)">
+    <text transform="translate(48 242.902)" font-size="18" font-family="HelveticaNeue-CondensedBold" fill="#913635">
+      Traits
+    </text>
+  </a>
+  <a transform="translate(-2.64 -.88)">
+    <text transform="translate(380.42 244.836)" font-size="18" font-family="HelveticaNeue-CondensedBold" fill="#506327">
+      Cells
+    </text>
+  </a>
+  <path d="M145.577 134.113h26.983v26.985l-6.746-6.746-40.73 40.728 6.747 6.746h-26.98v-26.982l6.746 6.745 40.73-40.73m215.724 31.264v26.982h-26.985l6.747-6.744-40.73-40.728-6.745 6.744v-26.984h26.983l-6.746 6.746 40.73 40.73" fill="#CBCBCB"/>
+  <path fill="#D6CDE1" d="M325.52 215.316l19.08 19.08-19.08 19.083v-9.543H138.335v9.54l-19.08-19.082 19.08-19.08v9.54H325.52"/>
+  <text font-size="14" x="198.393" y="239.28" font-family="HelveticaNeue-CondensedBold" fill="#60497b">
+    enrichment
+  </text>
+  <text font-size="11.327" x="-56.469" y="219.796" transform="matrix(.70655 -.70757 .71794 .69635 0 0)" font-family="HelveticaNeue-CondensedBold" fill="#717171">
+    association
+  </text>
+  <text transform="matrix(.69255 .72128 -.7113 .70313 0 0)" y="-123.388" x="320.271" font-size="11.327" font-family="HelveticaNeue-CondensedBold" fill="#717171">
+    association
+  </text>
+</svg>

@@ -1,0 +1,11 @@
+{
+	"name": "ontologies",
+	"title": "Master list of ontologies in FANTOM CAT",
+	"description": "Description",
+	"resources": [
+		{
+			"name": "ontology.info.tsv",
+			"path": "../../data/version_20161015.ontology.master_info.tsv"
+		}
+	]
+}

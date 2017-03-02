@@ -1,0 +1,112 @@
+#boxChart {
+  .box {
+    font-size: 14px;
+  }
+
+  .title {
+    font-family: Verdana, Geneva, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .subPlot rect,
+  .center {
+  	fill: none;
+    stroke: #ccc;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+  }
+
+  .pvalue,
+  .pvalue_group .tick {
+  	fill: none;
+    stroke: #000;
+    stroke-width: 2px;
+    shape-rendering: crispEdges;
+  }
+
+  .box line,
+  .box rect {
+    fill: #fff;
+    stroke: #000;
+    stroke-width: 1px;
+  }
+
+  .subPlot rect.boxLabel {
+    fill: #ccc;
+    stroke: #ccc;
+  }
+
+  .box .outlier  {
+    fill: #000;
+    opacity: 0.5;
+    stroke: #000;
+    stroke-width: 1px;
+
+    :hover {
+      opacity: 1;
+    }
+  }
+
+  .axis {
+    path, line {
+        fill: none;
+        stroke: black;
+        shape-rendering: crispEdges;
+    }
+  }
+
+  .axis path,
+  .axis line {
+      fill: none;
+      stroke: black;
+      shape-rendering: crispEdges;
+  }
+
+  .axis text,
+  text.legend {
+    font-family: Verdana, Geneva, sans-serif;
+    font-style: normal;
+    font-size: 11px;
+  }
+
+  .box-tick,
+  .whisker-tick {
+    opacity: 0;
+  }
+
+  .group {
+    cursor: pointer;
+  }
+
+  .group:hover .box-tick,
+  .group:hover .whisker-tick {
+    opacity: 1;
+  }
+
+  text {
+    text-rendering: optimizeLegibility;
+    fill: #000; stroke: #fff;
+    stroke-width: 4px;
+    paint-order: stroke;
+  }
+
+  .boxPlot .pvalue_group {
+    opacity: 0;
+  }
+
+  .boxPlot:hover .group  {
+    opacity: 0.3;
+  }
+
+  .boxPlot:hover .group:hover,
+  .group:hover .pvalue_group,
+  .group:hover .box-tick,
+  .group:hover .whisker-tick {
+    opacity: 1;
+  }
+
+  .pvalue_group-0 {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,195 @@
+<package-editor options="page.editorOptions"></package-editor>
+
+<div id="charts" class="gene-page" class="container">
+	<h1 class="header">{{::page.gene.geneName}} <small>{{::page.gene.geneID}}</small></h1>
+
+	<p>
+		{{::page.gene.description}}
+	</p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<h2>
+				Basic Information
+				<i class="small fa fa-info-circle" aria-hidden="true" uib-tooltip-html="::$root.strings.gene_indiv_basic_info_head" tooltip-placement="top"></i>
+			</h2>
+			<dl class="dl-horizontal wide">
+				<dt>Official Name: </dt> <dd>{{::page.gene.official_name}}</dd>
+				<dt>Official Symbol: </dt> <dd>{{::page.gene.official_symbol}}</dd>
+				<dt>CAT gene class: </dt> <dd>{{::page.gene.FANTOM_Gene_Class}}</dd>
+				<dt>CAT gene category: </dt> <dd>{{::page.gene.FANTOM_Gene_Category}}</dd>
+				<dt>GENCODE Biotype: </dt> <dd>{{::page.gene.GENCODE_Biotype}}</dd>
+				<dt>Roadmap DHS Type: </dt> <dd>{{::page.gene.Roadmap_DHS_Type}}</dd>
+				<dt ng-if-start="page.gene.Synonyms.length > 0">Synonyms: </dt> <dd ng-if-end>{{::page.gene.Synonyms.join(', ')}}</dd>
+				<dt ng-if-start="page.gene.Aliases.length > 0">Aliases: </dt> <dd ng-if-end>{{::page.gene.Aliases.join('; ')}}</dd>
+				<dt ng-if-start="::page.gene.Pubmed.length > 0">PUBMED: </dt> <dd ng-if-end>
+					<span ng-repeat="id in ::page.gene.Pubmed">
+						<a ng-href="http://www.ncbi.nlm.nih.gov/pubmed/?term={{::id}}" title="{{::id}}">{{id}}</a>
+					</span>
+				</dd>
+				<dt ng-if-start="::page.gene.External_ID">External IDs: </dt> <dd ng-if-end>
+					<span ng-repeat="(k,v) in ::page.gene.External_ID">
+						<a ng-repeat="link in ::v" ng-href="{{::link[1]}}" title="{{::link[0]}}">{{::k}} ({{::link[0]}})</a>
+					</span>
+				</dd>
+			</dl>
+		</div>
+		<div class="col-md-6">
+			<h2>
+				Sequence Conservation
+				<i class="small fa fa-info-circle" aria-hidden="true" uib-tooltip-html="::$root.strings.gene_indiv_cons_head" tooltip-placement="top"></i>
+			</h2>
+			<table class="table-condensed table-bordered center col-xs-12">
+				<tr>
+					<th></th>
+					<th ng-repeat="(k,v) in ::page.gene.sequence_conservation">{{k}}</th>
+				</tr>
+				<tr ng-repeat="v in ['conservation', 'maximum GERP element RS score', 'p-value, >median background', 'percentile above background']">
+					<td>{{v}}</td>
+					<td ng-repeat="(k,val) in ::page.gene.sequence_conservation">
+						{{val[v]}}
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<h2>
+		Genome Browser Views
+		<i class="small fa fa-info-circle" aria-hidden="true" uib-tooltip-html="::$root.strings.gene_indiv_zenbu_head" tooltip-placement="top"></i>
+	</h2>
+	<div class="row">
+    <div class="row seven-cols">
+      <div class="col-md-1 text-center" ng-repeat="(k, v) in page.zenbuConfigs" uib-tooltip-html="v[1]">
+        <span>{{k}}</span>
+        <br />
+				<a class="btn btn-link" uib-tooltip-html="'open in modal'" tooltip-placement="bottom" ng-click="page.openZenbuView(page.gene.ZENBU_loc, v[0])">
+					<i class="glyphicon glyphicon-modal-window"></i>
+				</a>
+        <a class="btn btn-link no-icon" uib-tooltip-html="'open in new tab'" tooltip-placement="bottom" ng-href="http://fantom.gsc.riken.jp/zenbu/gLyphs/index.html#{{page.zenbuQueryString(page.gene.ZENBU_loc, v[0])}}" target="_blank">
+          <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+		<!-- div class="col-md-9 col-md-offset-3 text-center">
+			<button class="btn btn-link"
+				ng-repeat="(k, v) in page.zenbuConfigs"
+				ng-click="page.openZenbuView(page.gene.ZENBU_loc, v[0])"
+				uib-tooltip-html="v[1]"
+				tooltip-placement="bottom">
+				{{k}} <i class="glyphicon glyphicon-modal-window x-small"></i>
+			</button>
+		</div -->
+	</div>
+
+	<h2>
+		Sample Ontology Association
+		<i class="small fa fa-info-circle" aria-hidden="true" uib-tooltip-html="::$root.strings.gene_indiv_ontology_head" tooltip-placement="top"></i>
+	</h2>
+	<div ng-switch="::page.grids.ontology.data.length">
+		<div ng-switch-when="0">
+			<h4 class="text-center">No Sample Ontology Association</h4>
+		</div>
+		<div ng-switch-default>
+			<div class="row">
+				<div id="expChart" class="row col-xs-12 bars"></div>
+			</div>
+			<div class="row">
+				<div class="smallGrid" ui-grid="page.grids.ontology" ui-grid-selection ui-grid-resize-columns></div>
+			</div>
+		</div>
+	</div>
+
+	<h2>
+		Trait vs Sample Ontology Enrichment
+		<i class="small fa fa-info-circle" aria-hidden="true" uib-tooltip-html="::$root.strings.gene_indiv_traitcell_head" tooltip-placement="top"></i>
+	</h2>
+	<div class="row">
+		<div ng-switch="page.grids.trait_vs_sample_ontology_enrichment.data.length">
+			<div ng-switch-when="0">
+				<h4 class="text-center">No Trait vs Sample Ontology Enrichment</h4>
+			</div>
+			<div ng-switch-default>
+				<div class="smallGrid" ui-grid="page.grids.trait_vs_sample_ontology_enrichment" ui-grid-auto-resize ui-grid-resize-columns></div>
+			</div>
+		</div>
+	</div>
+
+	<h2>
+		Genetic trait association
+		<i class="small fa fa-info-circle" aria-hidden="true" uib-tooltip-html="::$root.strings.gene_indiv_trait_head" tooltip-placement="top"></i>
+	</h2>
+	<div class="row">
+		<div ng-switch="page.grids.traits.data.length">
+		  <div ng-switch-when="0">
+				<h4 class="text-center">No Genetic trait association</h4>
+			</div>
+		  <div ng-switch-default>
+				<div class="smallGrid" ui-grid="page.grids.traits"  ui-grid-auto-resize ui-grid-resize-columns></div>
+			</div>
+		</div>
+	</div>
+
+	<h2 >
+		eQTL mRNA Coexpression
+		<i class="small fa fa-info-circle" aria-hidden="true" uib-tooltip-html="::$root.strings.gene_indiv_eQTL_head" tooltip-placement="top"></i>
+	</h2>
+	<div class="row">
+		<div ng-switch="page.grids.eQTL_mRNA_coexpression.data.length">
+			<div ng-switch-when="0">
+				<h4 class="text-center">No eQTL mRNA Coexpression</h4>
+			</div>
+			<div ng-switch-default>
+				<div class="smallGrid" ui-grid="page.grids.eQTL_mRNA_coexpression"
+					ui-grid-auto-resize
+					ui-grid-resize-columns></div>
+			</div>
+		</div>
+	</div>
+
+	<h2>
+		Dynamic Expression
+		<i class="small fa fa-info-circle" aria-hidden="true" uib-tooltip-html="::$root.strings.gene_indiv_dynamic_head" tooltip-placement="top"></i>
+	</h2>
+	<div ng-switch="page.grids.dynamic_expression.data.length">
+		<div ng-switch-when="0">
+			<h4 class="text-center">No Dynamic Expression</h4>
+		</div>
+		<div ng-switch-default>
+			<div class="row">
+				<div id="boxChart" class="col-xs-12"></div>
+			</div>
+
+			<div class="row">
+				<div class="smallGrid"
+					ui-grid="page.grids.dynamic_expression"
+					ui-grid-auto-resize
+					ui-grid-selection
+					ui-grid-resize-columns></div>
+			</div>
+		</div>
+	</div>
+
+	<h2>
+		Transcript Coding Potential
+		<i class="small fa fa-info-circle" aria-hidden="true" uib-tooltip-html="::$root.strings.gene_indiv_transcript_coding_head" tooltip-placement="top"></i>
+	</h2>
+	<div ng-switch="page.grids.trnscpt_coding_potential.data.length">
+		<div ng-switch-when="0">
+			<h4 class="text-center">Transcript Coding Potential</h4>
+		</div>
+		<div ng-switch-default>
+			<div class="row">
+				<div class="smallGrid"
+					ui-grid="page.grids.trnscpt_coding_potential"
+					ui-grid-auto-resize
+					ui-grid-resize-columns></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- h2>JSON</h2>
+	<div class="row">
+		<json-tree object="::page.gene"></json-tree>
+	</div -->
+</div>

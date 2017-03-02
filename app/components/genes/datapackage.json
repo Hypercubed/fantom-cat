@@ -1,0 +1,10 @@
+{
+	"name": "genes",
+	"title": "Master list of genes in FANTOM CAT",
+	"resources": [
+		{
+			"name": "gene.info.tsv",
+			"path": "../../data/version_20161015.gene.master.tsv"
+		}
+	]
+}

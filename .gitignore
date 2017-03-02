@@ -1,0 +1,10 @@
+app/data/
+app/old_data/
+raw/
+bak/
+etc/
+.DS_Store
+.vscode
+
+cypress/screenshots
+cypress/support

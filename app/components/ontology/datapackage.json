@@ -1,0 +1,8 @@
+{
+  "name": "ontology",
+  "title": "Ontology in FANTOM CAT",
+  "resources": [
+    "../../data/ontology_json/${id}.json",
+    "../../data/ontology_tsv/${id}.tsv"
+  ]
+}

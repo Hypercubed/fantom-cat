@@ -1,0 +1,104 @@
+.geneGrid {
+  height: 800px;
+}
+
+.smallGrid {
+	max-height: 200px;
+}
+
+a[href*="//"]:not(.no-icon):after {
+    content: "\e164";
+    padding-left: 3px;
+    padding-right: 5px;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 8px;
+}
+
+.x-small {
+  font-size: 65%;
+}
+
+h1 {
+	text-align: center;
+	color: #1f497d;
+}
+
+h2 {
+	border-bottom: 1px solid #ccc;
+	color: #1f497d;
+}
+
+h3 {
+	color: #1f497d;
+}
+
+table.center {
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.table-hover {
+	margin-bottom: 10px;
+
+  tr {
+  	cursor: pointer;
+  }
+
+  .active {
+    background-color: #e8e8e8;
+  }
+}
+
+dt, tr {
+  .strong {
+    font-weight: 900;
+  }
+}
+
+li.strong {
+  font-weight: 700;
+}
+
+.d3-tip {
+	max-width: 300px;
+	font: 11px sans-serif;
+	font-weight: normal;
+
+  hr {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  &.animate {
+    left: 0;  top: 0;
+    opacity: 0;
+    transition: left 0.2s ease-out, opacity 0.2s ease-out;
+    -webkit-transition: left 0.2s ease-out, opacity 0.2s ease-out;
+  }
+
+  &.animate-top {
+    opacity: 0;
+    transition: top 0.2s ease-out, opacity 0.2s ease-out;
+    -webkit-transition: top 0.2s ease-out, opacity 0.2s ease-out;
+  }
+}
+
+@media (min-width: 768px) {
+  .seven-cols .col-md-1, .seven-cols .col-sm-1, .seven-cols .col-lg-1 {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .seven-cols .col-md-1, .seven-cols .col-sm-1, .seven-cols .col-lg-1 {
+    width: 14.286%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .seven-cols .col-md-1, .seven-cols .col-sm-1, .seven-cols .col-lg-1 {
+    width: 14.286%;
+  }
+}

@@ -1,0 +1,31 @@
+<!-- div datapackage-edit model="dataPackage" read-only="true" can-download-svg="false"></div -->
+<package-editor options="$ctrl.editorOptions">
+  <div class="pull-right">
+    <form class="form-inline pull-right" ng-submit="$ctrl.searchFilter($ctrl.filterValue)">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="search" aria-describedby="inputSuccess2Search"
+          ng-model="$ctrl.filterValue" />
+      </div>
+      <button type="submit" class="btn btn-default">Filter</button>
+      <button type="button" class="btn btn-default btn-primary" ng-click="$ctrl.filterValue = ''; $ctrl.searchFilter()">Clear</button>
+    </form>
+  </div>
+</package-editor>
+
+<p />
+
+<div class="row">
+  <div class="col-md-3 small col-left">
+    <h2>Refine by</h2>
+    <div class="row">
+      <div class="col-xs-12">
+        <facetpanels facets="$ctrl.facets" clear-all="$ctrl.clearAll()"></facetpanels>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9 gene-grid-panel">
+    <h2>{{::$ctrl.title}} <small>Showing {{$ctrl.gridOpts.data.length}} of {{::$ctrl.raw.length}}</small></h2>
+    <div ui-grid="::$ctrl.gridOpts" class="geneGrid" ui-grid-resize-columns ui-grid-exporter>
+    </div>
+  </div>
+</div>
